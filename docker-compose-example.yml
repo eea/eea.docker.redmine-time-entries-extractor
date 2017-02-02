@@ -1,0 +1,15 @@
+time_entries_extractor:
+    build: time_entries_extractor
+    volumes:
+      - logstashConfig:/etc/logstash/conf.d
+      - timeEntriesExtractorData:/tmp/redmine #must match OUPUTDIR env
+      - /backups:/backups
+
+    environment:
+      OUTPUTDIR: /tmp/redmine 
+      TIMEFROM: 0
+      TIMETO: -3
+      USERNAME: changeme
+      PASSWORD: changeme
+      REDMINEURL: changeme
+      CRON_ENTRY: "*/15 * * * *"
