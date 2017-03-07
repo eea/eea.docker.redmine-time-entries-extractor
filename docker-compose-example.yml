@@ -19,3 +19,4 @@ time_entries_extractor:
       DBPORT: "changeme"
       DBHOST: "changeme"
       DBSCHEMA: "changeme"
+      FORCEDELETE: 1 #or 0
