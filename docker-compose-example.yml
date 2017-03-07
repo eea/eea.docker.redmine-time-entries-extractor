@@ -9,7 +9,13 @@ time_entries_extractor:
       OUTPUTDIR: /tmp/redmine 
       TIMEFROM: 0
       TIMETO: -3
-      USERNAME: changeme
-      PASSWORD: changeme
-      REDMINEURL: changeme
+      USERNAME: "changeme"
+      PASSWORD: "changeme"
+      REDMINEURL: "changeme"
       CRON_ENTRY: "*/15 * * * *"
+      DBUSERNAME: "changeme"
+      DBPASSWORD: "changeme"
+      DBDATABASE: "changeme"
+      DBPORT: "changeme"
+      DBUSERNAME: "changeme"
+      DBSCHEMA: "changeme"
