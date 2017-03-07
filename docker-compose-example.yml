@@ -17,5 +17,5 @@ time_entries_extractor:
       DBPASSWORD: "changeme"
       DBDATABASE: "changeme"
       DBPORT: "changeme"
-      DBUSERNAME: "changeme"
+      DBHOST: "changeme"
       DBSCHEMA: "changeme"
