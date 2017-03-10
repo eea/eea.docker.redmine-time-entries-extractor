@@ -5,8 +5,8 @@ set -e
 sed "s#REDMINEURL#$REDMINEURL#g" -i /opt/script.sh
 sed "s#TIMEFROM#$TIMEFROM#g" -i /opt/script.sh
 sed "s#TIMETO#$TIMETO#g" -i /opt/script.sh
-sed "s#USERNAME#$USERNAME#g" -i /opt/script.sh
-sed "s#PASSWORD#$PASSWORD#g" -i /opt/script.sh
+sed "s#REDMINEUSERNAME#$REDMINEUSERNAME#g" -i /opt/script.sh
+sed "s#REDMINEPASSWORD#$REDMINEPASSWORD#g" -i /opt/script.sh
 sed "s#OUTPUTDIR#$OUTPUTDIR#g" -i /opt/script.sh
 
 sed "s#DBHOST#$DBHOST#g" -i /opt/script.sh
