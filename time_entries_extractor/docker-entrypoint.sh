@@ -16,6 +16,10 @@ sed "s#DBPORT#$DBPORT#g" -i /opt/script.sh
 sed "s#DBUSERNAME#$DBUSERNAME#g" -i /opt/script.sh
 sed "s#DBPASSWORD#$DBPASSWORD#g" -i /opt/script.sh
 
+if [ "$FORCEDELETE" ]; then
+    sed "s#FORCEDELETE#$FORCEDELETE#g" -i /opt/script.sh
+fi
+
 if [ "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#OUTPUTDIR#$OUTPUTDIR#g" -i time_entries.conf
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i time_entries.conf
