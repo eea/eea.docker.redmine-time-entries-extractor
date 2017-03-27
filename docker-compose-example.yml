@@ -9,8 +9,7 @@ time_entries_extractor:
       OUTPUTDIR: /tmp/redmine 
       TIMEFROM: 0
       TIMETO: -3
-      REDMINEUSERNAME: "changeme"
-      REDMINEPASSWORD: "changeme"
+      APIKEY: "changeme"
       REDMINEURL: "changeme"
       CRON_ENTRY: "*/15 * * * *"
       DBUSERNAME: "changeme"

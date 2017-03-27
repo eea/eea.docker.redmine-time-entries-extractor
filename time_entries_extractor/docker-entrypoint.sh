@@ -13,8 +13,7 @@ sed "s#DBHOST#$DBHOST#g" -i /opt/script.sh
 sed "s#DBDATABASE#$DBDATABASE#g" -i /opt/script.sh
 sed "s#DBSCHEMA#$DBSCHEMA#g" -i /opt/script.sh
 sed "s#DBPORT#$DBPORT#g" -i /opt/script.sh
-sed "s#DBUSERNAME#$DBUSERNAME#g" -i /opt/script.sh
-sed "s#DBPASSWORD#$DBPASSWORD#g" -i /opt/script.sh
+sed "s#APIKEY#$APIKEY#g" -i /opt/script.sh
 
 sed "s#FORCEDELETE#$FORCEDELETE#g" -i /opt/script.sh
 
