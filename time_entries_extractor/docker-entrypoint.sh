@@ -15,6 +15,9 @@ sed "s#DBSCHEMA#$DBSCHEMA#g" -i /opt/script.sh
 sed "s#DBPORT#$DBPORT#g" -i /opt/script.sh
 sed "s#APIKEY#$APIKEY#g" -i /opt/script.sh
 
+sed "s#DBUSERNAME#$DBUSERNAME#g" -i /opt/script.sh
+sed "s#DBPASSWORD#$DBPASSWORD#g" -i /opt/script.sh
+
 sed "s#FORCEDELETE#$FORCEDELETE#g" -i /opt/script.sh
 
 if [ "$LOGSTASH_RW_USERNAME" ]; then
