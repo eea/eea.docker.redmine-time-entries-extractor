@@ -51,6 +51,8 @@ if [ "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/ingestKibana.sh
 fi
 
+sleep 30
+
 sh /opt/ingestKibana.sh
 
 exec "$@" 
