@@ -60,6 +60,7 @@ fi
 sleep 5
 
 sh /opt/ingestKibana.sh
+sh /opt/script.sh
 
 exec "$@" 
 
