@@ -48,6 +48,9 @@ if [ "$LOGSTASH_RW_USERNAME" ]; then
     mkdir -p /usr/share/logstash/config
     mv /time_entries.conf /usr/share/logstash/config/time_entries.conf
 
+    sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /opt/script.sh
+    sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/script.sh
+
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /opt/ingestKibana.sh
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/ingestKibana.sh
 fi
