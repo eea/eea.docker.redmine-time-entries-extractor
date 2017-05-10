@@ -32,7 +32,7 @@ then
     rm -rf $KIBANACONFIGURATIONDIR/$INDEXNAME
 fi
 
-if [ ! -d $KIBANACONFIGURATIONDIR/$INDEXNAME ]
+if [ ! -d $KIBANACONFIGURATIONDIR ]
 then
   git clone https://github.com/eea/eea.kibana.configs.git $KIBANACONFIGURATIONDIR
   cd $KIBANACONFIGURATIONDIR/$INDEXNAME
