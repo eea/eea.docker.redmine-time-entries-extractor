@@ -27,15 +27,17 @@ sed "s#INDEXNAME#$INDEXNAME#g" -i /opt/ingestKibana.sh
 
 sed "s#INDEXNAME#$INDEXNAME#g" -i /time_entries.conf
 
-if [ "$RESETATSTARTUP" = "YES" ]
+if [ "$RESETATSTARTUP" = "YES" ] && [ -d "$KIBANACONFIGURATIONDIR/configurationKibana" ];
 then
-    rm -rf $KIBANACONFIGURATIONDIR/$INDEXNAME
+    cd $KIBANACONFIGURATIONDIR/configurationKibana 
+    git pull
+#    rm -rf $KIBANACONFIGURATIONDIR
 fi
 
-if [ ! -d $KIBANACONFIGURATIONDIR ]
+if [ ! -d "$KIBANACONFIGURATIONDIR/configurationKibana" ]
 then
-  git clone https://github.com/eea/eea.kibana.configs.git $KIBANACONFIGURATIONDIR
-  cd $KIBANACONFIGURATIONDIR/$INDEXNAME
+  git clone https://github.com/eea/eea.kibana.configs.git $KIBANACONFIGURATIONDIR/configurationKibana
+  cd $KIBANACONFIGURATIONDIR/configurationKibana/$INDEXNAME
 #  git checkout $INDEXNAME
 fi
 
@@ -46,7 +48,7 @@ if [ ! -z "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /time_entries.conf
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /time_entries.conf
     mkdir -p /usr/share/logstash/config
-    mv /time_entries.conf /usr/share/logstash/config/time_entries.conf
+    cp /time_entries.conf /usr/share/logstash/config/time_entries.conf
 
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /opt/script.sh
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/script.sh
@@ -55,7 +57,7 @@ if [ ! -z "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/ingestKibana.sh
 fi
 
-sleep 30
+sleep 5
 
 sh /opt/ingestKibana.sh
 
