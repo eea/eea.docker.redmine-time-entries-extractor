@@ -45,7 +45,7 @@ if [ "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#OUTPUTDIR#$OUTPUTDIR#g" -i /time_entries.conf
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /time_entries.conf
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /time_entries.conf
-    cp --parents /time_entries.conf /usr/share/logstash/config/time_entries.conf
+    cp --parents /time_entries.conf /usr/share/logstash/config/
 
     sed "s#LOGSTASH_RW_USERNAME#$LOGSTASH_RW_USERNAME#g" -i /opt/ingestKibana.sh
     sed "s#LOGSTASH_RW_PASSWORD#$LOGSTASH_RW_PASSWORD#g" -i /opt/ingestKibana.sh
