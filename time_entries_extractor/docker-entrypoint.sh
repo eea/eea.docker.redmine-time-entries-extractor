@@ -39,7 +39,7 @@ then
 #  git checkout $INDEXNAME
 fi
 
-ls $KIBANACONFIGURATIONDIR/$INDEXNAME
+#ls $KIBANACONFIGURATIONDIR/$INDEXNAME
 
 if [ ! -z "$LOGSTASH_RW_USERNAME" ]; then
     sed "s#OUTPUTDIR#$OUTPUTDIR#g" -i /time_entries.conf
