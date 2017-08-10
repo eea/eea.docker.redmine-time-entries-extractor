@@ -10,9 +10,6 @@ RUN chmod a+x /opt/redmine_time_entries_extractor/redmine_time_entries_extractor
 COPY script.sh /opt
 RUN chmod a+x /opt/script.sh 
 
-#COPY ingestKibana.sh /opt/ingestKibana.sh
-#RUN chmod a+x /opt/ingestKibana.sh
-
 RUN mkdir -p /var/spool/cron/crontabs
 COPY time_entries.conf /
 
