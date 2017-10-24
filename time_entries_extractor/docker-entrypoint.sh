@@ -12,7 +12,7 @@ cp /time_entries.conf /usr/share/logstash/config/time_entries.conf
 
 counter=0
 while [ ! "$(curl -k https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200 2> /dev/null)" -a $counter -lt 100  ]; do
-  sleep 1
+  sleep 5
   let counter=counter+1
   echo "waiting for Elasticsearch to be up ($counter/100)"
 done
