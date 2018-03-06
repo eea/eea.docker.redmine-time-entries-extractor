@@ -24,9 +24,9 @@ then
   git clone https://github.com/eea/eea.kibana.configs.git /eea.kibana.configs
   if [ -d "/eea.kibana.configs/$INDEXNAME" ];
     then
-      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --input=/eea.kibana.configs/$INDEXNAME/kibana_mapping.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
-      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --input=/eea.kibana.configs/$INDEXNAME/kibana_analyzer.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
-      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --input=/eea.kibana.configs/$INDEXNAME/kibana_data.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
+      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --headers='{"Content-Type": "application/json"}' --input=/eea.kibana.configs/$INDEXNAME/kibana_mapping.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
+      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --headers='{"Content-Type": "application/json"}' --input=/eea.kibana.configs/$INDEXNAME/kibana_analyzer.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
+      NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --headers='{"Content-Type": "application/json"}' --input=/eea.kibana.configs/$INDEXNAME/kibana_data.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200/.kibana
   fi
 else
   cd /eea.kibana.configs
