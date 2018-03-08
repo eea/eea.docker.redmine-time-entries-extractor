@@ -14,24 +14,22 @@ echo "waiting until elasticsearch is up"
 until curl -k https://$RW_USERNAME:$RW_PASSWORD@elasticsearch:9200 &>/dev/null; do sleep 5; done
 echo "elasticsearch is up"
 
-sed "s#INDEXNAME#$INDEXNAME#g" -i /opt/script.sh
+#sed "s#INDEXNAME#$INDEXNAME#g" -i /opt/script.sh
 
 if [ "$RESETATSTARTUP" = "YES" ] || [ ! -d "/eea.kibana.configs" ];
 then
   git clone https://github.com/eea/eea.kibana.configs.git /eea.kibana.configs
   if [ -d "/eea.kibana.configs/$INDEXNAME" ];
     then
-      cd /eea.kibana.configs/$INDEXNAME
-NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --type=data --output-index=.kibana --headers='{"Content-Type": "application/json"}' --input=kibana_data.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200
-NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --type=mapping --output-index=.kibana --headers='{"Content-Type": "application/json"}' --input=kibana_mapping.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200
-NODE_TLS_REJECT_UNAUTHORIZED=0 elasticdump --type=analyzer --output-index=.kibana --headers='{"Content-Type": "application/json"}' --input=kibana_analyzer.json --output=https://$LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD@elasticsearch:9200
+      echo "folder /eea.kibana.configs/$INDEXNAME found, importing the dashboard"
+      sh /opt/ingestConfiguration.sh
   fi
 else
   cd /eea.kibana.configs
   git pull
 fi
 
-sh /opt/script.sh
+sh /opt/ingestData.sh
 
 exec "$@" 
 
