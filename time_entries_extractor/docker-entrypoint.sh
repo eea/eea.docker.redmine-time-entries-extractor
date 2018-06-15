@@ -32,5 +32,4 @@ fi
 
 sh /opt/ingestData.sh
 
-exec "$@" 
-
+exec "$@"
