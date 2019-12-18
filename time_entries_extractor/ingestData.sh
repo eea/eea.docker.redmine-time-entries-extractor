@@ -2,7 +2,7 @@
 
 set -e
 
-/opt/redmine_time_entries_extractor/redmine_time_entries_extractor_run.sh --context_param redmineUrl=$REDMINEURL --context_param redmineApiKey=$APIKEY --context_param outputDir=$OUTPUTDIR --context_param timeFrom=$TIMEFROM --context_param timeTo=$TIMETO --context_param forceDelete=$FORCEDELETE
+/opt/redmine_time_entries_extractor/redmine_time_entries_extractor_run.sh --context_param ncHost=$NCHOST --context_param ncUsername=$NCUSERNAME --context_param ncPassword=$NCPASSWORD --context_param redmineUrl=$REDMINEURL --context_param redmineApiKey=$APIKEY --context_param outputDir=$OUTPUTDIR --context_param timeFrom=$TIMEFROM --context_param timeTo=$TIMETO --context_param forceDelete=$FORCEDELETE
 
 export TESTKIBANAINDEX=$(curl -k --user $LOGSTASH_RW_USERNAME:$LOGSTASH_RW_PASSWORD -s 'https://elasticsearch:9200/_cat/indices?' | grep kibana)
 
