@@ -11,7 +11,7 @@ mkdir -p /usr/share/logstash/config
 cp /time_entries.conf /usr/share/logstash/config/time_entries.conf
 
 echo "waiting until elasticsearch is up"
-until curl -k http://$RW_USERNAME:$RW_PASSWORD@elasticsearch:9200 &>/dev/null; do sleep 5; done
+until curl -k https://$RW_USERNAME:$RW_PASSWORD@elasticsearch:9200 &>/dev/null; do sleep 5; done
 echo "elasticsearch is up"
 
 #sed "s#INDEXNAME#$INDEXNAME#g" -i /opt/script.sh
