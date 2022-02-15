@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update git unzip openntpd openjdk8-jre bash nodejs curl git nodejs-npm
+RUN apk add --update git unzip openntpd openjdk8-jre bash nodejs curl git npm
 
 RUN npm install elasticdump -g 
 RUN git clone -b 0.0.5 https://github.com/eea/redmine-time-entries-extractor.git 
